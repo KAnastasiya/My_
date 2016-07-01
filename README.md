@@ -1,1 +1,1 @@
-Site published at https://kanastasiya.github.io/Folio/
+Site published at https://kanastasiya.github.io/My_resume/
