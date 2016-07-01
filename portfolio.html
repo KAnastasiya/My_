@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/jpg" href="images/favicon.jpg">
+    <title>Kozenko_Anastasiia</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet'>
+    <link href="scripts/custom-scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet">
+    <link href="styles/styles.css" rel="stylesheet"/>
+
+    <script src="scripts/jquery-1.12.1.min.js"></script>
+    <script src="scripts/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script>
+      function imgLoaded(img){
+        $(img).parent().addClass('loaded');
+      };
+    </script>
+  </head>
+
+  <body>
+    <div class="page_header_container outer_content_wrapper">
+      <div class="inner_content_wrapper">
+        <div class="negative_margin_wrapper clearfix">
+          <header class="page_header grid_12">
+            <div class="negative_margin_wrapper clearfix">
+              <div class="grid_10">
+                <a href="index.html">
+                  <p class="name"><span>Anastasiia</span> Kozenko</p>
+                  <p class="position">Web-developer</p>
+                </a>
+              </div><!--grid_10-->
+              <nav class="clearfix">
+                <ul class="grid_2">
+                  <li>
+                    <a href="index.html">Resume</a>
+                  </li>
+                  <li id="current_nav_item">
+                    <a href="portfolio.html">Portfolio</a>
+                  </li>
+                </ul>
+              </nav>
+            </div><!--negative_margin_wrapper-->
+          </header>
+        </div><!--negative-margin-wrapper-->
+      </div><!--inner-container-wrapper-->
+    </div><!--page_header_container-->
+    <main class="portfolio outer_content_wrapper">
+      <div class="inner_content_wrapper">
+        <div class="negative_margin_wrapper clearfix">
+          <section class="article_container grid_12">
+            <div class="negative_margin_wrapper clearfix">
+              <figure class="card grid_6">
+                <p class="isLoading">Loading...</p>
+                <img src="images/coocking.png" alt="Cooking Recipes" onload="imgLoaded(this)">
+                <a href="http://kanastasiya.github.io/CookingRecipes" class="fork-me" target="_blank">Fork me on GitHub</a>
+              </figure><!--card-->
+              <figure class="card grid_6">
+                <p class="isLoading">Loading...</p>
+                <img src="images/landing.png" alt="Landing" onload="imgLoaded(this)">
+                <a href="http://kanastasiya.github.io/Land.io" class="fork-me" target="_blank">Fork me on GitHub</a>
+              </figure><!--card-->
+              <figure class="card grid_6">
+                <p class="isLoading">Loading...</p>
+                <img src="images/parallax.png" alt="Parallax" onload="imgLoaded(this)">
+                <a href="http://kanastasiya.github.io/Parallax" class="fork-me" target="_blank">Fork me on GitHub</a>
+              </figure><!--card-->
+              <figure class="card grid_6">
+                <p class="isLoading">Loading...</p>
+                <img src="images/portfolio.png" alt="Folio" onload="imgLoaded(this)">
+                <a href="http://kanastasiya.github.io/Folio" class="fork-me" target="_blank">Fork me on GitHub</a>
+              </figure><!--card-->
+            </div><!--negative_margin_wrapper-->
+          </section><!--article_container-->
+        </div><!--negative_margin_wrapper-->
+      </div><!--inner_content_wrapper-->
+    </main>
+    <div class="page_footer_container outer_content_wrapper">
+      <div class="inner_content_wrapper">
+        <div class="negative_margin_wrapper clearfix">
+          <footer class="page_footer grid_12 clearfix">
+            <p>Created by Anastasiia Kozenko in 2016</p>
+          </footer><!--page_footer-->
+        </div><!--negative_margin_wrapper-->
+      </div><!--inner_content_wrapper-->
+    </div><!--page_footer_container-->
+    <script>
+      $(document).ready(function() {
+        $('body').mCustomScrollbar({ theme: 'minimal-dark', scrollInertia: 200 });
+      });
+    </script>
+  </body>
+</html>

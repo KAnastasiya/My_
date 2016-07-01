@@ -1,0 +1,9 @@
+.sass-cache/
+images/portfolio/
+
+.DS_Store
+Thumbs.db
+*.sublime*
+*.log
+*.psd
+*.ai

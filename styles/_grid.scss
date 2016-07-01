@@ -1,0 +1,48 @@
+$mobile-max: 480px;
+$desktop-min: $mobile-max + 1;
+
+$gutter: 40px;
+$gutter_small: 10px;
+
+@mixin grid ($page_width, $gutter, $columns) {
+	$column_width: $page_width/$columns;
+	@for $i from 1 through $columns {
+		.grid_#{$i} {
+			display: inline;
+			float: left;
+			margin-left: $gutter/2;
+			margin-right: $gutter/2;
+			width: $i * $column_width - $gutter;
+		}
+	}
+	.outer_content_wrapper {
+		width: 100%;
+		position: relative;
+	}
+	.inner_content_wrapper {
+		width: $page_width - $gutter;
+		margin: 0 auto;
+	}
+	.negative_margin_wrapper {
+		margin-left: -($gutter/2);
+		margin-right: -($gutter/2);
+	}
+}
+
+@media only screen and (max-width: $mobile-max) {
+	@include grid(400px, $gutter_small, 1);
+}
+
+@media only screen and (min-width: $desktop-min) {
+	@include grid(1200px, $gutter, 12);
+}
+
+.clearfix::before,
+.clearfix::after {
+	content:'';
+	display: table;
+}
+
+.clearfix::after {
+	clear: both;
+}
