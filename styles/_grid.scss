@@ -36,13 +36,3 @@ $gutter_small: 10px;
 @media only screen and (min-width: $desktop-min) {
 	@include grid(1200px, $gutter, 12);
 }
-
-.clearfix::before,
-.clearfix::after {
-	content:'';
-	display: table;
-}
-
-.clearfix::after {
-	clear: both;
-}

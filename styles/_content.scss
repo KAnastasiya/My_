@@ -14,6 +14,7 @@
     list-style: none;
     li {
       display: inline-block;
+      vertical-align: top;
       min-width: 50%;
       &:not(:first-of-type) {
         margin-left: -5px;
@@ -121,9 +122,16 @@ main {
   }
 }
 
+.personal {
+  @media only screen and (max-width: $mobile-max) {
+    margin-bottom: 10px;
+  }
+}
+
 .social {
   height: 50px;
-  margin-top: $gutter;
+  margin-top: $gutter/2;
+  padding: 0 20px;
   position: relative;
   @media only screen and (max-width: $mobile-max) {
     margin-top: $gutter / 2;
@@ -132,6 +140,7 @@ main {
   }
   a {
     display: inline-block;
+    vertical-align: middle;
     width: 50px;
     &:not(:first-child) {
       margin-left: 10px;
@@ -147,6 +156,20 @@ main {
   }
 }
 
+.contacts {
+  float: left;
+  @media only screen and (max-width: $mobile-max) {
+    float: none;
+  }
+}
+
+.works {
+  float: right;
+  @media only screen and (max-width: $mobile-max) {
+    display: none;
+  }
+}
+
 .photo_container {
   position: relative;
   margin-left: $gutter * 1.5;
@@ -157,11 +180,8 @@ main {
 }
 
 .photo {
-  width: inherit;
-  height: inherit;
   border: 4px solid $primary-color;
   border-radius: 50%;
-  margin-bottom: $gutter;
   @media only screen and (max-width: $mobile-max) {
     width: 200px;
     margin-bottom: 0;
@@ -169,13 +189,10 @@ main {
 }
 
 .resume_download {
-  display: block;
-  width: auto;
   font-size: 1.1em;
   line-height: 1.5;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  position: relative;
+  margin-right: 55px;
   &::before {
     content: '';
     width: 20px;
@@ -236,7 +253,8 @@ main {
   }
 }
 
-.responsibilities {
+.responsibilities,
+.freelance_projects {
   margin-left: $gutter/2;
 }
 
@@ -263,6 +281,7 @@ aside {
   list-style: none;
   li {
     display: inline-block;
+    vertical-align: top;
     line-height: 30px;
     min-width: 65px;
     padding: 0 15px;
@@ -394,4 +413,9 @@ aside {
   right: -90px;
   z-index: 1;
   transform: rotate(45deg);
+}
+
+.freelance_projects__details {
+  color: rgba(0,0,0,0.5);
+  font-size: 14px;
 }

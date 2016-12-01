@@ -1,50 +1,5 @@
 @import "normalize.scss";
+@import "variables.scss";
 @import "grid.scss";
-
-$primary-color: #4CAF50;
-$font-size: 14px;
-$font-color: rgba(0, 0, 0, 0.8);
-$light-font: rgba(0, 0, 0, 0.6);
-$white-color: #fff;
-
-@mixin text_overflow {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-@mixin filter($property) {
-  -webkit-filter: $property;
-  filter: $property;
-}
-
-* {
-  color: $font-color;
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-}
-
-html, body {
-	height: 100%;
-	font-family: Roboto, sans-serif;
-}
-
-h3 {
-  font-size: 1.7em;
-  font-weight: 300;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #ddd;
-  margin-bottom: $gutter/3;
-}
-
-p {
-  line-height: 1.5;
-}
-
-a {
-  color: $primary-color;
-  text-decoration: none;
-}
-
+@import "scaffolding.scss";
 @import "content.scss";
