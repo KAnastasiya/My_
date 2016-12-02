@@ -27,6 +27,51 @@ a {
   text-decoration: none;
 }
 
+main {
+  position: relative;
+  padding-top: 76px;
+  padding-bottom: $gutter;
+  min-height: 100vh;
+  &.portfolio {
+    background: #eee;
+  }
+  @media only screen and (max-width: $mobile-max) {
+    padding-top: 60px;
+    padding-bottom: $gutter_small;
+  }
+}
+
+.article_container {
+  margin-top: $gutter;
+  position: relative;
+  @media only screen and (max-width: $mobile-max) {
+    margin-top: $gutter_small*3;
+  }
+}
+
+aside {
+  margin-top: $gutter + 20px;
+  padding-left: $gutter;
+}
+
+.aside_container {
+  margin-top: $gutter;
+  ul {
+    padding: 10px 20px;
+    li {
+      position: relative;
+    }
+  }
+}
+
+.period {
+  color: $light-font;
+  font-size: 0.8em;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .clearfix::before,
 .clearfix::after {
   content:'';

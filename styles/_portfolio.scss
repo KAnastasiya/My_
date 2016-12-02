@@ -1,0 +1,50 @@
+.card {
+  height: 380px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  margin-bottom: $gutter*0.5;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  .isLoading {
+    color: $light-font;
+    font-size: 1.2em;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: inherit;
+    height: 100%;
+  }
+  img {
+    width: inherit;
+    height: inherit;
+    display: block;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  &.loaded {
+    .isLoading {
+      display: none;
+    }
+    img {
+      opacity: 1;
+    }
+  }
+}
+
+.fork-me {
+  color:$white-color;
+  background: $primary-color;
+  text-align: center;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  display: block;
+  padding: 10px 100px;
+  position: absolute;
+  top: 60px;
+  right: -90px;
+  z-index: 1;
+  transform: rotate(45deg);
+}

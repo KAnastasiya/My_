@@ -1,0 +1,12 @@
+.page_footer_container {
+  background-color: #ddd;
+}
+
+.page_footer {
+  padding: $gutter/3 0;
+  color: $light-font;
+  font-size: 0.9em;
+  @media only screen and (max-width: $mobile-max) {
+    text-align: center;
+  }
+}

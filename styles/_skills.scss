@@ -1,0 +1,14 @@
+.skills {
+  list-style: none;
+  li {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 30px;
+    min-width: 65px;
+    padding: 0 15px;
+    background: #eee;
+    margin: 0 5px 20px 0;
+    font-size: 0.9em;
+    text-align: center;
+  }
+}

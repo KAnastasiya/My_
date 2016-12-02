@@ -1,9 +1,3 @@
-$mobile-max: 480px;
-$desktop-min: $mobile-max + 1;
-
-$gutter: 40px;
-$gutter_small: 10px;
-
 @mixin grid ($page_width, $gutter, $columns) {
 	$column_width: $page_width/$columns;
 	@for $i from 1 through $columns {
