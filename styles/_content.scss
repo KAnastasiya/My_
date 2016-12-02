@@ -141,9 +141,11 @@ main {
   a {
     display: inline-block;
     vertical-align: middle;
-    width: 50px;
     &:not(:first-child) {
       margin-left: 10px;
+    }
+    &:not(.resume_download) {
+      width: 50px;
     }
     img {
       width: 48px;
