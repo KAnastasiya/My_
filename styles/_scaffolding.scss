@@ -52,6 +52,10 @@ main {
 aside {
   margin-top: $gutter + 20px;
   padding-left: $gutter;
+  @media only screen and (max-width: $mobile-max) {
+    margin-top: 45px;
+    padding-left: 0;
+  }
 }
 
 .aside_container {
