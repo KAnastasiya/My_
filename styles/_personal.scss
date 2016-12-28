@@ -4,21 +4,9 @@
   border-radius: 2px;
   background: #fafafa;
   h1 {
-    color: $primary-color;
-    font-size: 3em;
-    font-weight: 300;
-    text-transform: uppercase;
-    margin-top: 0;
-    margin-bottom: $gutter/2;
-    @media only screen and (max-width: $mobile-max) {
-      font-size: 1.8em;
-      margin-bottom: $gutter_small;
-    }
-  }
-  h2 {
     font-size: 2em;
     font-weight: 300;
-    margin-bottom: $gutter/2;
+    margin: 0 0 $gutter/2;
     @media only screen and (max-width: $mobile-max) {
       font-size: 1.8em;
       margin-bottom: $gutter_small;
@@ -65,8 +53,7 @@
 
 .social {
   height: 50px;
-  margin-top: $gutter/2;
-  padding: 0 20px;
+  margin-top: 45px;
   position: relative;
   @media only screen and (max-width: $mobile-max) {
     margin-top: $gutter / 2;
@@ -88,19 +75,5 @@
         opacity: 0.5;
       }
     }
-  }
-}
-
-.contacts {
-  float: left;
-  @media only screen and (max-width: $mobile-max) {
-    float: none;
-  }
-}
-
-.works {
-  float: right;
-  @media only screen and (max-width: $mobile-max) {
-    display: none;
   }
 }
