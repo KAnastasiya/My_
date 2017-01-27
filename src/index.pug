@@ -1,0 +1,18 @@
+extends blocks/layout
+block content
+  - var main = true
+  include blocks/page-header/page-header
+  main.outer_content_wrapper
+    .inner_content_wrapper
+      .negative_margin_wrapper.clearfix
+        section.grid_8
+          .negative_margin_wrapper.clearfix
+            include blocks/personal/personal
+            include blocks/experience/experience
+            include blocks/education/education
+        aside.grid_4
+          include blocks/skills/skills
+          include blocks/courses/courses
+          include blocks/languages/languages
+  include blocks/page-footer/page-footer
+  include blocks/scripts

@@ -1,0 +1,23 @@
+.page_header_container.outer_content_wrapper
+  .inner_content_wrapper
+    .negative_margin_wrapper.clearfix
+      header.page_header.grid_12
+        .negative_margin_wrapper.clearfix
+          .grid_10
+            a(href='index.html')
+              p.name Anastasiia
+                unecsaped!=' '
+                span Kozenko
+              p.position Frontend-developer
+          nav.clearfix
+            ul.grid_2
+              if (main)
+                li(class='nav_item nav_item_current index')
+                  a(href='index.html') About me
+                li(class='nav_item portfolio')
+                  a(href='portfolio.html') Portfolio
+              else
+                li(class='nav_item index')
+                  a(href='index.html') About me
+                li(class='nav_item nav_item_current portfolio')
+                  a(href='portfolio.html') Portfolio

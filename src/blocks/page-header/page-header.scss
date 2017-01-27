@@ -1,0 +1,70 @@
+.page_header_container {
+  background: #000;
+  border-bottom: 4px solid $primary-color;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  position: fixed;
+  z-index: 2;
+}
+
+.page_header {
+  padding: 10px 0;
+  position: relative;
+
+  nav ul {
+    list-style: none;
+
+    li {
+      display: inline-block;
+      vertical-align: top;
+      min-width: 50%;
+
+      &:not(:first-of-type) {
+        margin-left: -5px;
+      }
+
+      a {
+        color: $white-color;
+        font-size: 0.8em;
+        line-height: 50px;
+        text-transform: uppercase;
+        display: block;
+        padding: 0 5px;
+        text-align: center;
+      }
+
+      &.nav_item_current a {
+        color: $primary-color;
+        border-bottom: 2px solid $primary-color;
+      }
+    }
+
+    @media only screen and (max-width: $mobile-max) {
+      display: none;
+    }
+  }
+}
+
+.name {
+  font-size: 2em;
+  color: $white-color;
+  line-height: 1;
+  margin-bottom: 5px;
+
+  span {
+    color: $primary-color;
+  }
+
+  @media only screen and (max-width: $mobile-max) {
+    font-size: 1.4em;
+  }
+}
+
+.position {
+  font-size: 1.2em;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.7);
+
+  @media only screen and (max-width: $mobile-max) {
+    font-size: 1em;
+  }
+}

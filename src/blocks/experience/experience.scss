@@ -1,0 +1,32 @@
+.job {
+  &:not(:last-child) {
+    margin-bottom: $gutter;
+  }
+
+  header {
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  a > * {
+    color: $primary-color;
+
+    &:hover {
+      color: lighten($primary-color, 10);
+    }
+  }
+}
+
+.responsibilities,
+.freelance_projects {
+  margin-left: $gutter/2;
+}
+
+.projects {
+  margin-top: $gutter/2;;
+}
+
+.freelance_projects__details {
+  color: rgba(0,0,0,0.5);
+  font-size: 14px;
+}

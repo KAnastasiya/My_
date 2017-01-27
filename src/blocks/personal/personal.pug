@@ -1,0 +1,18 @@
+mixin social(type, href)
+  a(href=href , target='_blank')
+    img(src='img/personal/img/' + type + '.svg', alt=type, title=href)
+
+.personal_container.article_container.grid_8
+  .negative_margin_wrapper.clearfix
+    article.personal.grid_5
+      h1 Anastasiia Kozenko
+      p April 12, 1987
+      p Dnepropetrovsk, Ukraine
+      .social.clearfix
+        +social('smartphone', 'tel://+380997959388')
+        +social('email', 'mailto:kozenko.anastasiia@gmail.com')
+        +social('skype', 'skype:anastasiia.kozenko')
+        +social('linked-in', 'https://linkedin.com/in/AnastasiiaKozenko')
+        +social('github', 'https://github.com/KAnastasiya')
+    .photo_container.grid_3
+      img(src='img/personal/img/photo.jpg', width='200', height='200', alt='My photo').photo

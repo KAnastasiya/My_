@@ -1,0 +1,10 @@
+mixin lang(lang, level)
+  li=lang
+    small.lang_level=level
+
+.aside_container
+  h3 Languages
+  ul.languages
+    +lang('Ukrainian', 'Native')
+    +lang('Russian', 'Native')
+    +lang('English', 'Pre-Intermediate')

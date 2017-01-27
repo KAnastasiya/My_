@@ -1,0 +1,19 @@
+extends blocks/layout
+block content
+  include blocks/portfolio-item/portfolio-item
+  include blocks/page-header/page-header
+  main.portfolio.outer_content_wrapper
+    .inner_content_wrapper
+      .negative_margin_wrapper.clearfix
+        section.article_container.grid_12
+          .negative_margin_wrapper.clearfix
+            +portfolio-item('glaccy', '171084-gllacy')
+            +portfolio-item('landing', 'Land.io')
+            +portfolio-item('the_band', 'The_Band')
+            +portfolio-item('klumba', 'Klumba')
+            +portfolio-item('barbershop', '171084-barbershop')
+            +portfolio-item('portfolio', 'Folio')
+            +portfolio-item('parallax', 'Parallax')
+            +portfolio-item('coocking', 'CookingRecipes')
+  include blocks/page-footer/page-footer
+  include blocks/scripts
