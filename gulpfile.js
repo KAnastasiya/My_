@@ -1,53 +1,57 @@
 const gulp = require('gulp');
+const browserSync = require('browser-sync').create();
+const del = require('del');
 const imageminJpegRecompress = require('imagemin-jpeg-recompress');
 const imageminPngquant = require('imagemin-pngquant');
-const del = require('del');
-const gulpsync = require('gulp-sync')(gulp);
-const plugins = require('gulp-load-plugins')();
-const browserSync = require('browser-sync');
 const webpack = require('webpack-stream');
 const named = require('vinyl-named');
+const plugins = require('gulp-load-plugins')();
 const webpackConfig = require('./webpack.config.js');
 
-const reload = browserSync.reload;
+const SRC = 'src';
+const PUBLIC = './';
 
-const publicDir = './';
 
-
-gulp.task('pug', () => {
+// Pug
+gulp.task('pug', () =>
   gulp
-    .src('src/*.pug')
+    .src(`${SRC}/*.pug`)
     .pipe(plugins.plumber({
-      errorHandler: plugins.notify.onError()
+      errorHandler: plugins.notify.onError(),
     }))
-    .pipe(plugins.pug({
-      pretty: true
-    }))
-    .pipe(gulp.dest(publicDir));
-});
+    .pipe(plugins.pug())
+    .pipe(gulp.dest(PUBLIC))
+);
 
 
-gulp.task('scss', () => {
+// Styles
+gulp.task('scss', () =>
   gulp
-    .src('src/styles.scss')
+    .src(`${SRC}/*.scss`)
     .pipe(plugins.plumber({
-      errorHandler: plugins.notify.onError()
+      errorHandler: plugins.notify.onError(),
     }))
     .pipe(plugins.sourcemaps.init())
-    .pipe(plugins.sass())
+    .pipe(plugins.sass({
+      includePaths: require('node-normalize-scss').includePaths,
+    }))
     .pipe(plugins.autoprefixer(
       ['last 2 versions', '> 1%'],
       { cascade: false }
     ))
     .pipe(plugins.cssnano())
-    .pipe(plugins.rename({suffix: '.min'}))
+    .pipe(plugins.rename({
+      suffix: '.min',
+    }))
     .pipe(plugins.sourcemaps.write())
-    .pipe(gulp.dest(publicDir));
-});
+    .pipe(gulp.dest(PUBLIC))
+);
 
-gulp.task('js', () => {
+
+// Scripts
+gulp.task('js', () =>
   gulp
-    .src('src/scripts.js')
+    .src(`${SRC}/*.js`)
     .pipe(plugins.plumber({
       errorHandler: plugins.notify.onError(err => ({
         title: 'Webpack',
@@ -59,48 +63,79 @@ gulp.task('js', () => {
     .pipe(plugins.rename({
       suffix: '.min',
     }))
-    .pipe(gulp.dest(publicDir));
-});
+    .pipe(gulp.dest(PUBLIC))
+);
 
 
-gulp.task('cleanImg', () => {
-  return del(publicDir + '/img');
-});
-
-gulp.task('img', ['cleanImg'], () => {
+// Images
+gulp.task('img', () =>
   gulp
-  .src('src/blocks/**/img/*')
-  .pipe(plugins.imagemin([
-    imageminJpegRecompress({
-      loops: 4,
-      min: 50,
-      max: 80,
-      quality: 'high',
-      strip: true,
-      progressive: true
-    }),
-    imageminPngquant({ quality: '50-80' }),
-    plugins.imagemin.svgo({removeViewBox: true})
-  ]))
-  .pipe(gulp.dest(publicDir + '/img'));
-});
+    .src(`${SRC}/blocks/**/img/*.*`)
+    .pipe(plugins.imagemin([
+      imageminJpegRecompress({
+        loops: 4,
+        min: 40,
+        max: 65,
+        quality: 'medium',
+        strip: true,
+        progressive: true,
+      }),
+      imageminPngquant({ quality: '50-80' }),
+      plugins.imagemin.svgo({
+        removeViewBox: true,
+      }),
+    ]))
+    .pipe(gulp.dest(`${PUBLIC}/img`))
+);
 
 
-gulp.task('server', () => {
-  browserSync({
+// Clean
+gulp.task('cleanImg', () => del(`${PUBLIC}/img`));
+
+
+// Server
+gulp.task('server', () =>
+  browserSync.init({
     server: {
-      baseDir: publicDir,
-      index: 'index.html'
+      baseDir: PUBLIC,
+      index: 'index.html',
     },
-    port: '8800',
-    open: false
-  });
+    port: 8800,
+    open: false,
+    reloadOnRestart: true,
+  })
+);
+
+
+// Watch
+gulp.task('watch', () => {
+  gulp.watch([
+    `${SRC}/blocks/**/*.pug`,
+    `${SRC}/common/pug/*.pug`,
+    `${SRC}/*.pug`,
+  ]).on('change', gulp.series('pug', browserSync.reload));
+
+  gulp.watch([
+    `${SRC}/blocks/**/*.scss`,
+    `${SRC}/common/scss/*.scss`,
+    `${SRC}/*.scss`,
+  ]).on('change', gulp.series('scss', browserSync.reload));
+
+  gulp.watch([
+    `${SRC}/blocks/**/*.js`,
+    `${SRC}/common/js.js`,
+    `${SRC}/*.js`,
+  ]).on('change', gulp.series('js', browserSync.reload));
+
+  gulp.watch([
+    `${SRC}/blocks/**/img/*`,
+    `${SRC}/common/img/*`,
+  ]).on('change', gulp.series('cleanImg', 'img', browserSync.reload));
 });
 
 
-gulp.task('default', gulpsync.sync(['img', 'pug', 'scss', 'js', 'server']), () => {
-  gulp.watch('./src/**/img/*', ['img']).on('change', reload);
-  gulp.watch('./src/**/*.pug', ['pug']).on('change', reload);
-  gulp.watch('./src/**/*.scss', ['scss']).on('change', reload);
-  gulp.watch('./src/**/*.js', ['js']).on('change', reload);
-});
+// Default
+gulp.task('default', gulp.series(
+  gulp.parallel('img', 'pug', 'scss'),
+  gulp.parallel('server', 'watch')
+));

@@ -1,0 +1,128 @@
+{
+  "plugins": [
+    "stylelint-scss",
+    "stylelint-order"
+  ],
+  "extends": [
+    "stylelint-config-standard"
+  ],
+  "rules": {
+    "order/order": [
+      "custom-properties",
+      "dollar-variables",
+      {
+        type: "at-rule",
+        name: "mixin"
+      },
+      {
+        type: "at-rule",
+        name: "include"
+      },
+      {
+        type: "at-rule",
+        name: "extend"
+      },
+      "declarations",
+      {
+        type: "at-rule",
+        name: "media"
+      },
+      "rules"
+    ],
+    "order/properties-order": [
+      "content",
+      "color",
+      "font",
+      "font-family",
+      "font-size",
+      "font-weight",
+      "font-style",
+      "white-space",
+      "text-decoration",
+      "text-decoration-color",
+      "text-decoration-skip",
+      "text-transform",
+      "line-height",
+      "text-align",
+      "text-overflow",
+      "display",
+      "flex-flow",
+      "flex-direction",
+      "flex-wrap",
+      "justify-content",
+      "align-items",
+      "align-content",
+      "grid-auto-flow",
+      "grid-template-rows",
+      "grid-template-columns",
+      "flex",
+      "grid-row",
+      "grid-column",
+      "grid-gap",
+      "width",
+      "height",
+      "padding",
+      "padding-top",
+      "padding-right",
+      "padding-bottom",
+      "padding-left",
+      "border",
+      "border-top",
+      "border-right",
+      "border-bottom",
+      "border-left",
+      "border-radius",
+      "margin",
+      "margin-top",
+      "margin-right",
+      "margin-bottom",
+      "margin-left",
+      "box-sizing",
+      "float",
+      "min-width",
+      "max-width",
+      "min-height",
+      "max-height",
+      "object-fit",
+      "object-position",
+      "background",
+      "background-color",
+      "background-image",
+      "background-repeat",
+      "background-position",
+      "background-size",
+      "position",
+      "top",
+      "right",
+      "bottom",
+      "left",
+      "z-index",
+      "overflow",
+      "clip",
+      "list-style",
+      "transform",
+      "transition",
+      "animation",
+      "cursor"
+    ],
+    "at-rule-no-unknown": [ true, {
+      ignoreAtRules: [
+        "extend",
+        "at-root",
+        "debug",
+        "warn",
+        "error",
+        "if",
+        "else",
+        "for",
+        "each",
+        "while",
+        "mixin",
+        "include",
+        "content",
+        "return",
+        "function"
+      ]
+    }]
+  }
+}

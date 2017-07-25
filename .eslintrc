@@ -1,5 +1,8 @@
 {
-  "globals": {},
+  "globals": {
+    "NODE_ENV": true
+  },
+
   "extends": "airbnb-base",
   "parser": "babel-eslint",
 

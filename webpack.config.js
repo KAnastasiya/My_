@@ -1,7 +1,10 @@
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
-  devtool: 'inline-source-map',
+  devtool: 'cheap-inline-module-source-map',
+
+  watch: true,
 
   module: {
     loaders: [{
@@ -10,10 +13,15 @@ module.exports = {
       exclude: /node_modules/,
       query: { presets: ['es2015'] },
     }],
+    preLoaders: [{
+      test: /\.js$/,
+      loader: 'eslint',
+      include: path.resolve(__dirname, '/src/**')
+    }]
   },
 
   plugins: [
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
@@ -21,7 +29,11 @@ module.exports = {
         drop_debugger: true,
         unused: true,
         collapse_vars: true,
-      },
-    }),
+      }
+    })
   ],
+
+  eslint: {
+    configFile: '/.eslintrc'
+  },
 };
