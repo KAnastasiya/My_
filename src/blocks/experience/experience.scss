@@ -4,8 +4,8 @@
   }
 
   header {
-    position: relative;
     margin-bottom: 10px;
+    position: relative;
   }
 
   a > * {
@@ -15,6 +15,11 @@
       color: lighten($primary-color, 10);
     }
   }
+
+  .position {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+  }
 }
 
 .responsibilities,
@@ -23,10 +28,10 @@
 }
 
 .projects {
-  margin-top: $gutter/2;;
+  margin-top: $gutter/2;
 }
 
 .freelance_projects__details {
-  color: rgba(0,0,0,0.5);
+  color: rgba(0, 0, 0, 0.5);
   font-size: 14px;
 }

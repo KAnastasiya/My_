@@ -1,9 +1,9 @@
 mixin course(href, name, image, cert)
   li
-    a(href=href, target='_blank').course=name
+    a(href=href, target='_blank', rel="noopener").course=name
       img(src='img/courses/img/' + image + '.png', alt='LITS')
     if (cert)
-      a(href='cert/' + cert + '.pdf', target='_blank').cert Certificate.pdf
+      a(href='cert/' + cert + '.pdf', target='_blank', rel='noopener').cert Certificate.pdf
     else
       p.tip The courses are not completed yet
 
