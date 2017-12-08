@@ -4,10 +4,10 @@
   @for $i from 1 through $columns {
     .grid_#{$i} {
       display: inline;
-      float: left;
-      margin-left: $gutter/2;
-      margin-right: $gutter/2;
       width: $i * $column_width - $gutter;
+      margin-right: $gutter/2;
+      margin-left: $gutter/2;
+      float: left;
     }
   }
 
@@ -22,8 +22,8 @@
   }
 
   .negative_margin_wrapper {
-    margin-left: -($gutter/2);
     margin-right: -($gutter/2);
+    margin-left: -($gutter/2);
   }
 }
 

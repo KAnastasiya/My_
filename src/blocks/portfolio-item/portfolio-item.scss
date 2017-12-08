@@ -1,28 +1,28 @@
 .card {
   height: 380px;
-  background: #f5f5f5;
   border: 1px solid #ddd;
   border-radius: 2px;
   margin-bottom: $gutter*0.5;
+  background: #f5f5f5;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
   position: relative;
   overflow: hidden;
 
   img {
+    display: block;
     width: inherit;
     height: inherit;
-    display: block;
     padding: 10px;
   }
 }
 
 .fork-me {
-  color:$white-color;
-  background: $primary-color;
+  color: $white-color;
   text-align: center;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
   display: block;
   padding: 10px 100px;
+  background: $primary-color;
   position: absolute;
   top: 60px;
   right: -90px;

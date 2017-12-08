@@ -3,9 +3,10 @@
 }
 
 .page_footer {
-  padding: $gutter/3 0;
   color: $light-font;
   font-size: 0.9em;
+  padding: $gutter/3 0;
+
   @media only screen and (max-width: $mobile-max) {
     text-align: center;
   }
